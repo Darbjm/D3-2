@@ -4,14 +4,16 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { json, active } from 'd3'
+import './app.css';
 
 import ChartWrapper from './ChartWrapper';
 import Table from './Table'
+import BubbleWrapper from './BubbleWrapper'
 
 class App extends Component {
   state = {
     data: [],
-    activeName: null
+    activeName: null,
   }
 
   componentWillMount() {
@@ -35,12 +37,19 @@ class App extends Component {
     return (
       <div>
         <Navbar bg="light">
-          <Navbar.Brand>Scatterplotly</Navbar.Brand>
+          <Navbar.Brand>D3 Projects: ScatterPlot and Bubble animation</Navbar.Brand>
         </Navbar>
         <Container>
+          <br />
+          <br />
+          <br />
           <Row>
             <Col md={6} xs={12}>{this.renderChart()}</Col>
             <Col md={6} xs={12}><Table data={this.state.data} updateData={this.updateData} activeName={this.state.activeName}/></Col>
+          </Row>
+          <hr />
+          <Row>
+            <Col xs={12}><BubbleWrapper /></Col>
           </Row>
         </Container>
       </div>
