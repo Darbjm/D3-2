@@ -9,11 +9,15 @@ import './app.css';
 import ChartWrapper from './ChartWrapper';
 import Table from './Table'
 import BubbleWrapper from './BubbleWrapper'
+import ChartWrapper2 from './ChartWrapper2';
+import GenderDropdown2 from './GenderDropdown';
+
 
 class App extends Component {
   state = {
     data: [],
     activeName: null,
+    gender: 'men'
   }
 
   componentWillMount() {
@@ -30,14 +34,17 @@ class App extends Component {
     if (this.state.data.length === 0) {
       return 'No data yet'
     }
-    return <ChartWrapper data={this.state.data} updateName={this.updateName} />
+    return <ChartWrapper data={this.state.data} updateName={this.updateName} gender={this.state.gender} />
   }
+
+  genderSelected = (gender) => this.setState({ gender })
+
 
   render() {
     return (
       <div>
         <Navbar bg="light">
-          <Navbar.Brand>D3 Projects: ScatterPlot and Bubble animation</Navbar.Brand>
+          <Navbar.Brand>D3 Projects: Learn D3 with react</Navbar.Brand>
         </Navbar>
         <Container>
           <br />
@@ -47,10 +54,20 @@ class App extends Component {
             <Col md={6} xs={12}>{this.renderChart()}</Col>
             <Col md={6} xs={12}><Table data={this.state.data} updateData={this.updateData} activeName={this.state.activeName}/></Col>
           </Row>
+          <Row>
+            <Col xs={12}><GenderDropdown2 genderSelected={this.genderSelected}/></Col>
+          </Row>
           <hr />
           <Row>
             <Col xs={12}><BubbleWrapper /></Col>
           </Row>
+          {/* <hr/>
+            <Row>
+              <Col xs={12}><GenderDropdown2 genderSelected={this.genderSelected}/></Col>
+            </Row>
+            <Row>
+              <Col xs={12}><ChartWrapper2 gender={this.state.gender}/></Col>
+            </Row> */}
         </Container>
       </div>
     );
