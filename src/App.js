@@ -9,7 +9,6 @@ import './app.css';
 import ChartWrapper from './ChartWrapper';
 import Table from './Table'
 import BubbleWrapper from './BubbleWrapper'
-import ChartWrapper2 from './ChartWrapper2';
 import GenderDropdown2 from './GenderDropdown';
 
 
@@ -50,6 +49,7 @@ class App extends Component {
           <br />
           <br />
           <br />
+          <h4>An interactive and dynamic scatterplot</h4>
           <Row>
             <Col md={6} xs={12}>{this.renderChart()}</Col>
             <Col md={6} xs={12}><Table data={this.state.data} updateData={this.updateData} activeName={this.state.activeName}/></Col>
@@ -58,16 +58,10 @@ class App extends Component {
             <Col xs={12}><GenderDropdown2 genderSelected={this.genderSelected}/></Col>
           </Row>
           <hr />
+          <h4>Using bubbles as a fun way to display images</h4>
           <Row>
             <Col xs={12}><BubbleWrapper /></Col>
           </Row>
-          {/* <hr/>
-            <Row>
-              <Col xs={12}><GenderDropdown2 genderSelected={this.genderSelected}/></Col>
-            </Row>
-            <Row>
-              <Col xs={12}><ChartWrapper2 gender={this.state.gender}/></Col>
-            </Row> */}
         </Container>
       </div>
     );

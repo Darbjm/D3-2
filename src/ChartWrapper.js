@@ -24,6 +24,7 @@ export default class ChartWrapper extends Component {
       <div>
         <div className="chart-area" ref="chart1"></div>
         <hr />
+        <h4>Updating a chart via user input</h4>
         <div ref='chart2'></div>
       </div>
     )
